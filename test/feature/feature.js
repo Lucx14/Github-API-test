@@ -5,6 +5,7 @@ module.exports = {
     browser
       .url('http://localhost:3000/')
       .assert.urlContains('/')
+      .assert.title('Github API')
       .assert.containsText('body', 'Hello world!!!')
       .end();
   },
