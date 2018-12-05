@@ -48,17 +48,32 @@ app.post('/query', [
 });
 
 app.get('/answer', (req, res) => {
-  // And also how we deal with invalid usernames
-  // So at this point before i even get to my model obeject i want to have validated the username is correct
   fetch(`https://api.github.com/users/${req.session.username}/repos`)
-    .then(res => res.json())
-    .then((json) => {
-      const dev = new developer(json);
-      let lang = dev.favouriteLanguage();
-      res.render('answer', { language: lang });
-    })
-    .catch(err => {
-      return err;
+    // .then(res => res.json())
+    // .then((json) => {
+    //   const dev = new developer(json);
+    //   let lang = dev.favouriteLanguage();
+    //   res.render('answer', { language: lang });
+    // })
+    // .catch(err => {
+    //   return err;
+    // });
+    .then(
+      function(response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Stateus Code: ' + response.status);
+          res.redirect('query');
+        } else {
+          response.json().then(function(json) {
+          const dev = new developer(json);
+          let lang = dev.favouriteLanguage();
+          res.render('answer', { language: lang });
+          });
+        }
+      }
+    )
+    .catch(function(err) {
+      console.log('Fetch Error :-S', err);
     });
 });
 
