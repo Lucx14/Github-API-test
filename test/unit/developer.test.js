@@ -34,6 +34,6 @@ describe('Developer', () => {
     expect(testdev2.favouriteLanguage()).toEqual('Python');
   });
   test('Model can determine users most used language given data set 3', () => {
-    expect(testdev3.favouriteLanguage()).toEqual('Javascript');
+    expect(testdev3.favouriteLanguage()).toEqual('JavaScript');
   });
 });
