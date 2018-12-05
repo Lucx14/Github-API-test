@@ -1,0 +1,22 @@
+{
+  "name": "github-api-test",
+  "version": "1.0.0",
+  "description": "A small app that interacts with Github API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucx14/Github-API-test.git"
+  },
+  "author": "Lucien Najev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucx14/Github-API-test/issues"
+  },
+  "homepage": "https://github.com/Lucx14/Github-API-test#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
