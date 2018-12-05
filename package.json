@@ -4,7 +4,7 @@
   "description": "A small app that interacts with Github API",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "lint": "eslint"
   },
   "repository": {
@@ -24,6 +24,7 @@
   "devDependencies": {
     "eslint": "^5.9.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0"
   }
 }
