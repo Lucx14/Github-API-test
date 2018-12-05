@@ -18,4 +18,19 @@ I want to be able to enter a username and see the favourite language of the Gith
 
 ### Using the app
 
+to boot up a local server
+npm install
+nodemon
+
+
+to run feature tests with nightwatch
+-nodemon to run a server on localhost:3000
+npm run feature
+
+to run jest unit tests 
+npm test
+
+to run the linter
+./node_modules/.bin/eslint < Name of what ever file >
+
 ### Domain model
