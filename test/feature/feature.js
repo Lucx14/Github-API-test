@@ -6,7 +6,10 @@ module.exports = {
       .url('http://localhost:3000/')
       .assert.urlContains('/')
       .assert.title('Github API')
-      .assert.containsText('body', 'Hello world!!!')
+      .assert.containsText('#heading', 'Developer Favourite Language')
+      .assert.containsText('.description', 'This is a small app')
+      .assert.containsText('body', 'To start press the button below')
+      .assert.visible('button[name=query]')
       .end();
   },
 }
