@@ -25,7 +25,6 @@ app.use(session({
   resave: false,
 }));
 
-
 // ___ROUTES___
 app.get('/', (req, res) => res.render('index'));
 
@@ -51,6 +50,5 @@ app.get('/answer', (req, res) => {
       return err;
     });
 });
-
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
