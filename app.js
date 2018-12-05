@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const fetch = require('node-fetch');
+const { check, validationResult } = require('express-validator/check');
 const developer = require('./models/developer');
 
 // ___APP INITIALIZE___
@@ -30,13 +31,23 @@ app.get('/', (req, res) => res.render('index'));
 
 app.get('/query', (req, res) => res.render('query'));
 
-app.post('/query', (req, res) => {
-  req.session.username = req.body.username;
-  res.redirect('/answer');
+app.post('/query', [
+  check('username')
+    .not()
+    .isEmpty(),
+], (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.render('query', {
+      errors: errors.array(),
+    });
+  } else {
+    req.session.username = req.body.username;
+    res.redirect('/answer');
+  }
 });
 
 app.get('/answer', (req, res) => {
-  // Need to think about what happens when a user inputs nothing in the box
   // And also how we deal with invalid usernames
   // So at this point before i even get to my model obeject i want to have validated the username is correct
   fetch(`https://api.github.com/users/${req.session.username}/repos`)
