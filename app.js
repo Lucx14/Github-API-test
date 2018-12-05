@@ -13,5 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 // ___ROUTES___
 app.get('/', (req, res) => res.render('index'));
 
+app.get('/query', (req, res) => res.render('query'));
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -12,4 +12,15 @@ module.exports = {
       .assert.visible('button[name=query]')
       .end();
   },
+  'Github API query - Query Page': function(browser) {
+    browser
+      .url('http://localhost:3000/')
+      .click('button[name=query]')
+      .assert.urlContains('query')
+      .assert.title('Github API: Query')
+      .assert.containsText('body', 'Please enter a valid username')
+      .assert.visible('input[name=username]')
+      .assert.visible('input[name=submit]')
+      .end();
+  },
 }
