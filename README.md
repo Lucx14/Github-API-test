@@ -16,14 +16,14 @@ I started the process by writing down some of my initial thoughts in my notebook
 
 * Reading the Github API documentation
 * Interact with API in the command line to get an idea of the format of the data
-* Command line or web app: I decided to make a small web app as the interface because it is something i can build on and also that was how i imagined a user would want to interact with the program.
-* Ruby or JavaScript: I chose javascript only because ive been trying to work more on my understanding of the language. 
-* Think about testing with an API, and choose testing frameworks: I recently used Nightwatch on another project and so i thought i would try to introduce it here too. I also chose to go with Jest for the unit testing, again just because i had used it recently.
-* Think about designing my domain and objects: This ended up as quite a simple design, with my call to the API insode the controller and a single JS class object called developer that handles the logic that is run on the reetreived data.
-* Single or multi page app: I chose to go with multiple views but I think when i get time to improve it i will look into making a single page app.
+* Command line or web app: I decided to make a small web app as the interface because it is something I can build on and also that was how I imagined a user would want to interact with the program.
+* Ruby or JavaScript: I chose javascript only because i've been trying to work more on my understanding of the language.
+* Think about testing with an API, and choose testing frameworks: I recently used Nightwatch on another project and so I thought I would try to introduce it here too. I also chose to go with Jest for the unit testing, again just because I had used it recently.
+* Think about designing my domain and objects: This ended up as quite a simple design, with my call to the API inside the controller and a single JS class object called developer that handles the logic that is run on the retreived data.
+* Single or multi page app: I chose to go with multiple views but I think when I get time to improve it I will look into making a single page app.
 * Draw out user interface diagram: domain model diagram below
 * Write user story: There wasnt much to write in terms of a user story but it is documented below.
-* decide which method to use to query the API: After reading some documentation i chose to go with javascripts fetch api method because the syntax seemed cleaner and i read that it is one of the most up to date ways of making api calls in JS.
+* decide which method to use to query the API: After reading some documentation I chose to go with javascripts fetch api method because the syntax seemed cleaner and I read that it is one of the most up to date ways of making api calls in JS.
 * think about how to wrap the data in an object - the main developer class, with single responsibility to determine the users favourite language.
 
 ### User stories
