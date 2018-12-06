@@ -4,7 +4,7 @@ const path = require('path');
 const session = require('express-session');
 const fetch = require('node-fetch');
 const { check, validationResult } = require('express-validator/check');
-const developer = require('./models/developer');
+const Developer = require('./models/developer');
 
 // ___APP INITIALIZE___
 const app = express();
@@ -49,30 +49,19 @@ app.post('/query', [
 
 app.get('/answer', (req, res) => {
   fetch(`https://api.github.com/users/${req.session.username}/repos`)
-    // .then(res => res.json())
-    // .then((json) => {
-    //   const dev = new developer(json);
-    //   let lang = dev.favouriteLanguage();
-    //   res.render('answer', { language: lang });
-    // })
-    // .catch(err => {
-    //   return err;
-    // });
-    .then(
-      function(response) {
-        if (response.status !== 200) {
-          console.log('Looks like there was a problem. Stateus Code: ' + response.status);
-          res.redirect('query');
-        } else {
-          response.json().then(function(json) {
-          const dev = new developer(json);
-          let lang = dev.favouriteLanguage();
+    .then((response) => {
+      if (response.status !== 200) {
+        console.log(`Looks like there was a problem. Stateus Code: ${response.status}`);
+        res.redirect('query');
+      } else {
+        response.json().then((json) => {
+          const dev = new Developer(json);
+          const lang = dev.favouriteLanguage();
           res.render('answer', { language: lang });
-          });
-        }
+        });
       }
-    )
-    .catch(function(err) {
+    })
+    .catch((err) => {
       console.log('Fetch Error :-S', err);
     });
 });
